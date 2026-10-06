@@ -1,0 +1,20 @@
+# Dependências de runtime da API (versões fixadas para builds reproduzíveis)
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+# [asyncio] traz o greenlet: o projeto não usa async, mas a instrumentação OpenTelemetry
+# do SQLAlchemy importa sqlalchemy.ext.asyncio, que exige o greenlet desde a 2.1.
+sqlalchemy[asyncio]==2.1.1
+alembic==1.20.0
+pymysql==1.2.3
+cryptography==50.0.1
+pydantic[email]==2.13.5
+pydantic-settings==2.15.0
+pwdlib[argon2]==0.3.1
+pyjwt==2.15.0
+python-multipart==0.0.32
+pillow==12.3.0
+# Traces (OpenTelemetry -> Grafana Alloy -> Grafana Cloud)
+opentelemetry-sdk==1.45.0
+opentelemetry-exporter-otlp-proto-http==1.45.0
+opentelemetry-instrumentation-fastapi==0.66b0
+opentelemetry-instrumentation-sqlalchemy==0.66b0
